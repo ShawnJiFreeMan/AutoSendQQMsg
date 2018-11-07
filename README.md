@@ -15,7 +15,7 @@
 ### 🔥1、准备工作:砸壳 、导出ipa到电脑 、class-dump导出头文件、IDA加载可执行文件
       clutch砸壳:
       
-      1、将下载好的clutch文件用pp助手copy到手机 `/usr/bin/ `目录下
+      1、将下载好的clutch文件用pp助手copy到手机 /usr/bin/ 目录下
       2、ssh到越狱手机上:ssh root@你手机的ip
       3、clutch -i  //终端上将会列出手机上所有安装的未砸壳的app并带有序号
       4、根据你要砸壳的app序号砸壳即可:clutch -d 序号
@@ -34,3 +34,4 @@
 ### 🔥2、从界面表现入手,寻找分析的一个切入点
     1、手机打开QQ聊天室页面,电脑打开reveal，查看聊天页面的控制器:QQChatViewController
    ![reveal.png](https://github.com/ShawnJiFreeMan/AutoSendQQMsg/tree/master/image/reveal.png)
+    2、打开QQ头文件搜索QQChatViewController,在QQChatViewController下搜索关于发消息的关键词:message\msg\send..
