@@ -26,4 +26,4 @@ reveal、IDA Pro、class-dump、QQ(7.1.0PP助手上下载的脱壳版,当然appS
 
 ### 2、从界面表现入手,寻找分析的一个切入点
     1、手机打开QQ聊天室页面,电脑打开reveal，查看聊天页面的控制器:QQChatViewController
-    ![reveal.png](https://github.com/ShawnJiFreeMan/AutoSendQQMsg/tree/master/image/reveal.png)
+   ![reveal.png](https://github.com/ShawnJiFreeMan/AutoSendQQMsg/tree/master/image/reveal.png)
