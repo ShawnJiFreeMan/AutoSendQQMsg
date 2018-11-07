@@ -34,4 +34,9 @@
 ### 🔥2、从界面表现入手,寻找分析的一个切入点
     1、手机打开QQ聊天室页面,电脑打开reveal，查看聊天页面的控制器:QQChatViewController
    ![reveal.png](https://github.com/ShawnJiFreeMan/AutoSendQQMsg/tree/master/image/reveal.png)
+    
     2、打开QQ头文件搜索QQChatViewController,在QQChatViewController下搜索关于发消息的关键词:message\msg\send..
+       发现一个可疑的函数:- (_Bool)doSendTextMsg:(id)arg1 showText:(id)arg2 isLocation:(_Bool)arg3 resendModel:(id)arg4 hideFakeMsg:(_Bool)arg5;,发送一个消息发现arg2就是消息内容
+       
+    3、在ida内搜索 QQChatViewController doSendTextMsg 方法
+    
