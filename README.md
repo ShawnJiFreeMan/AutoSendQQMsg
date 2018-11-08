@@ -41,4 +41,5 @@
        发送一个消息发现arg2就是消息内容
        
     3、在ida内搜索 QQChatViewController doSendTextMsg 方法
+   ![ida1.png](https://github.com/ShawnJiFreeMan/AutoSendQQMsg/tree/master/image/ida1.png)    
     
