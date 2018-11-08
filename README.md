@@ -72,7 +72,7 @@
     [msgModel setMsgType:0];
     [msgModel setMsgState:1];
     
-    [msgModel setUin:@"1832891971"];
+    [msgModel setUin:@"这里是你发送对象的QQ号"];
     
     unsigned int msgRadom = [[%c(QQMsgSyncManager) sharedInstance] getC2CSendMessageRandom];
     [msgModel setMessageRandom:msgRadom];
