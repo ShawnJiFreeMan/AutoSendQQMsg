@@ -41,5 +41,26 @@
        发送一个消息发现arg2就是消息内容
        
     3、在ida内搜索 QQChatViewController doSendTextMsg 方法
-   ![ida1.png](https://github.com/ShawnJiFreeMan/AutoSendQQMsg/tree/master/image/ida1.png)    
+   ![ida1.png](https://github.com/ShawnJiFreeMan/AutoSendQQMsg/tree/master/image/ida1.png)  
+      
+      从ida中发现首先初始化了一个QQMessageModel的类并设置了一系列属性,这里并不急着看到底设置了哪些属性继续向下看
+      找到是谁调用了这个QQMessageModel,hook一下这个调用函数添加打印，发送一个消息看看打印信息里QQMessageModel
+      的属性怎么设置自然就知道了。
+### 🔥3、hook发现的一些类，运用logify打印记录参数以及调用顺序
+      1、发现的类主要有:
+                     * QQMessageModel //消息model
+                     * CIMEngine //调用其GetServerTimeDiff方法用于生成发送时间
+                     * QQMsgSyncManager //调用其getC2CSendMessageRandom方法用于生成MessageRandom
+                                        //调用其getC2CSendMessageSeq方法用于生成MsgSeq
+                     *QQPlatform,C2CDBService_MultiTable,QQChatListManager...
+                     *重点:QQF2FMessageSender类用于发送消息
+### 🔥4、制作插件
+===================================
+END:
+ 
+                     
+                     
+                     
+      
+      
     
