@@ -61,9 +61,37 @@
 
 ==========================================================
  
-                     
-                     
-                     
-      
+    最后附上自动发送消息的核心代码:
+    QQMessageModel *msgModel = [[%c(QQMessageModel) alloc] init];
+    [msgModel setContent:@"AutoSendMsg"];
+    [msgModel setLoadingState:YES];
+    long long sendTime = [[%c(CIMEngine) GetInstance] GetServerTimeDiff];
+    [msgModel setTime:sendTime];
+    [msgModel setInOut:NO];
+    [msgModel setRead:0];
+    [msgModel setMsgType:0];
+    [msgModel setMsgState:1];
+    
+    [msgModel setUin:@"1832891971"];
+    
+    unsigned int msgRadom = [[%c(QQMsgSyncManager) sharedInstance] getC2CSendMessageRandom];
+    [msgModel setMessageRandom:msgRadom];
+    
+    unsigned short msgSeq = [[%c(QQMsgSyncManager) sharedInstance] getC2CSendMessageSeq:[[msgModel uin] longLongValue]];
+    [msgModel setMsgSeq:msgSeq];
+    
+    [msgModel setMsgUid:[%c(QQMessageModel) randomToUid:msgRadom]];
+    
+    
+    QQPlatform *platform = [%c(QQPlatform) sharedPlatform];
+    QQServiceCenter *serviceCenter = [platform QQServiceCenter];
+    
+    C2CDBService_MultiTable *multiTablwDB = [serviceCenter C2CMultiTableDB];
+    [multiTablwDB insertSendMessage:msgModel];
+    
+    QQChatListManager *listManager = [[%c(QServiceFactory) sharedFactory] getMessageListService];
+    [listManager addMessage:msgModel];
+    
+    [[%c(QQF2FMessageSender) getInstance] sendPbTextMessage:msgModel shareAppInfo:nil];
       
     
